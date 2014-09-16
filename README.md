@@ -36,9 +36,19 @@ jresplus使用Java的开发技术
 参与我们
 ---
 如果你的电脑里还可以放下一部短片、或者几首mp3，那么不妨[Fork一下jresplus](https://github.com/hundsun/jresplus/fork)吧，也许它能帮助你换台更好的电脑...
-快速开始
+相关文档
 ---
-* 访问[wiki](https://github.com/hundsun/jresplus/wiki)了解更多;
-* 下载[jresplus-mvc quick-start project](https://github.com/hundsun/jresplus/tree/master/quick-start/quick_start_mvc.zip)体验jresplus-mvc特性；
+See the wiki page for: [jresplus wiki](https://github.com/hundsun/jresplus/wiki)
+###wiki 文档列表
+* [mvc-quick-start-project下载](https://github.com/hundsun/jresplus/tree/master/quick-start/quick_start_mvc.zip)；
+* [mvc-会话同步NoSession的适用与使用](https://github.com/hundsun/jresplus/wiki/NoSession的适用和使用)
+* [mvc-资源代理URLBroker的适用和使用](https://github.com/hundsun/jresplus/wiki/URLBroker的适用和使用)
+* [mvc-异步管道输出Bigpipe的适用与使用](https://github.com/hundsun/jresplus/wiki/Bigpipe的适用和使用)
+* [mvc-页面静态化PageStatic的适用和使用](https://github.com/hundsun/jresplus/wiki/PageStatic的适用和使用)
+* [mvc-沙箱特性页面编程的适用和使用](https://github.com/hundsun/jresplus/wiki/沙箱特性的适用和使用)
+* [mvc-职责分离式视图开发的适用和使用](https://github.com/hundsun/jresplus/wiki/COC视图开发的适用和使用)
 
-
+问题反馈
+---
+QQ交流群：368209161<br/>
+报告issue：[issue](https://github.com/hundsun/jresplus/issues)
