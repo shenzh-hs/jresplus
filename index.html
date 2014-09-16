@@ -7,7 +7,29 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/releasenotes.plugin.css">
     <script src="javascripts/scale.fix.js"></script>
+	
+	<script src="js/libs/jquery-1.7.1.min.js"></script>
+	<script src="js/libs/marked.js"></script>
+	<script src="js/releasenotes.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#releaseNotesContainer").releaseNotes({
+				milestonesShown			: 10,
+				// If you want to show private repo
+				// You need to add repo credentials in api.php
+				phpApi 				: false,
+					phpApiPath		: '/',
+				showDescription 			: true,
+				showComments 			: true,
+				// Used if phpAPI is false
+	     			repo		            		: 'jresplus',
+	     			username       			: 'hundsun'
+			});
+		});
+	</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -109,13 +131,19 @@ jresplus目前包含但不局限与以下模块组件：<br></p>
 <li><a href="https://github.com/hundsun/jresplus/wiki/%E6%B2%99%E7%AE%B1%E7%89%B9%E6%80%A7%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-沙箱特性页面编程的适用和使用</a></li>
 <li><a href="https://github.com/hundsun/jresplus/wiki/COC%E8%A7%86%E5%9B%BE%E5%BC%80%E5%8F%91%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-职责分离式视图开发的适用和使用</a></li>
 </ul><h2>
-<a name="%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88" class="anchor" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span class="octicon octicon-link"></span></a>问题反馈</h2>
+<a name="%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88" class="anchor" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span class="octicon octicon-link"></span></a>release Notice</h2>
 
-<p>QQ交流群：368209161<br>
-报告issue：<a href="https://github.com/hundsun/jresplus/issues">issue</a></p>
+<div id="websiteContainer">
+	<div class="containerRelease">
+		<h1>Release Notes</h1>
+		<div id="releaseNotesContainer" role="main"></div>
+
+	</div>
+</div>
       </section>
       <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>QQ交流群：368209161</small></p>
+		<p><small>报告Issue: <a href="https://github.com/hundsun/jresplus/issues">issues</a></small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
