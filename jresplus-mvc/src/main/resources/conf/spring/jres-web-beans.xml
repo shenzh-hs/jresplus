@@ -21,7 +21,7 @@
 			<props>
 				<prop key="response.out.charset">UTF-8</prop>
 				<prop key="session.max.inacterval">-1</prop>
-				<prop key="session.meta.cookie.name">_h_</prop>
+				<prop key="session.meta.cookie.name">_co_</prop>
 				<prop key="session.meta.cookie.domain"></prop>
 				<prop key="cookies.max.length">4095</prop>
 				<prop key="cookies.max.count">1</prop>
@@ -77,7 +77,7 @@
 			</bean>
 		</property>
 	</bean>
-	<!-- httpsµÄappserver -->
+	<!-- httpsÂµÃ„appserver -->
 	<bean id="sslAppServerBroker" class="com.hundsun.jresplus.web.url.URLBroker">
 		<property name="name" value="sslAppServer"/>
 		<property name="encoding" value="${response.out.charset}"></property>
@@ -103,7 +103,7 @@
 			</bean>
 		</property>
 	</bean>
-	<!-- ¶àÖ÷»úurl ÅäÖÃ -->
+	<!-- Â¶Ã Ã–Ã·Â»Ãºurl Ã…Ã¤Ã–Ãƒ -->
 	<bean id="uploadServerBroker" class="com.hundsun.jresplus.web.url.MultiHostURLBroker">
 		<property name="name" value="uploadServer"/>
 		<property name="encoding" value="${response.out.charset}"></property>
