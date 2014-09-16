@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jresplus by hundsun</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Jresplus</h1>
+        <p class="header">JavaEE 基础开发框架</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/hundsun/jresplus/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/hundsun/jresplus/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/hundsun/jresplus">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/hundsun">hundsun</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="jresplus" class="anchor" href="#jresplus"><span class="octicon octicon-link"></span></a>JRESPLUS</h1>
+
+<p>jresplus是恒生电子研发中心自2013年起发布的一个基于java、spring技术的分层开发框架。它包含UI、MVC、CEP、DAO等模块组件和配套的开发规范，使用这些模块组件可以快速构建web、分布式、关系数据库等类型的企业级应用，目前已广泛应用在金融领域的产品中。<br></p>
+
+<h3>
+<a name="jresplus-%E7%BB%93%E6%9E%84" class="anchor" href="#jresplus-%E7%BB%93%E6%9E%84"><span class="octicon octicon-link"></span></a>jresplus 结构</h3>
+
+<p>jresplus采用maven进行工程管理。<br>
+jresplus目前包含但不局限与以下模块组件：<br></p>
+
+<ul>
+<li>jresplus-common</li>
+<li>jresplus-mvc</li>
+<li>jresplus-ui</li>
+<li>jresplus-cep</li>
+<li>jresplus-dao</li>
+</ul><h2>
+<a name="jresplus--%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E" class="anchor" href="#jresplus--%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E"><span class="octicon octicon-link"></span></a>jresplus  模块说明</h2>
+
+<h3>
+<a name="jresplus-common" class="anchor" href="#jresplus-common"><span class="octicon octicon-link"></span></a>jresplus-common</h3>
+
+<p>jresplus的基础公共模块，内部包含工厂、异常、参数、数组处理、字符串处理、对象处理、html处理、io处理等工具类和基础类，供其他模块使用。<br>
+该模块可以做为工具包单独使用;</p>
+
+<h3>
+<a name="jresplus-mvc" class="anchor" href="#jresplus-mvc"><span class="octicon octicon-link"></span></a>jresplus-mvc</h3>
+
+<p>mvc模块，基于springmvc之上，提供了分布式集群环境下所需的回话同步、资源代理、页面静态化、Bigpipe、沙箱特性等web端技术解决方案，同时提供了COC的职责分离式视图开发方案可以有效提高前端开发的效率和变更应对效率。
+该模块可以做为mvc单独使用（但需要引入jresplus-common）;</p>
+
+<h3>
+<a name="jresplus-cep" class="anchor" href="#jresplus-cep"><span class="octicon octicon-link"></span></a>jresplus-cep</h3>
+
+<p>消息中间件模块，以通用事件处理平台（CEP）为核心，为构建分布式集群应用提供分层部署、路由分发、安全连接和面向插件式的可扩展通道、可扩展业务处理模块以及面向接口面向对象的远程服务开发（支持本地穿透）等特性，同时jresplus-cep作为恒生企业服务总线（ESB）的重要组成部分，可以和恒生的C/C++系统无缝对接，基于jresplus-cep可以快速构建分布式集群部署环境.
+该模块可以做为消息中间件单独使用（但需要引入jresplus-common）;</p>
+
+<h3>
+<a name="jresplus-ui" class="anchor" href="#jresplus-ui"><span class="octicon octicon-link"></span></a>jresplus-ui</h3>
+
+<p>UI组件模块，依赖jresplus-mvc模块，在此之上提供UI开发所需的字典、参数、缓存、校验等特性支持，并提供一套采用服务端输出技术的基础UI控件（表单、列表、窗口、多标签页、提示、布局等），基于jresplus-ui可以快速构建前端展示界面及扩展出自己的UI组件。</p>
+
+<h3>
+<a name="jresplus-dao" class="anchor" href="#jresplus-dao"><span class="octicon octicon-link"></span></a>jresplus-dao</h3>
+
+<p>数据访问层模块，目前主要面向关系型数据库，提供了原子操作（CRUD）、自定义主键策略、乐观锁、异常等基础层，并在此基础上分别基于市场上流行成熟的持久层方案进行集成实现（mybatis\hibernate），对上层提供统一的持久层接口，持久层的实现可以结合适用场景选择jresplus-dao的具体实现组件，基于jresplus-dao模块组件结合jresplus-dao的开发规范可以快速构建关系型数据库持久层方案。</p>
+
+<h2>
+<a name="jresplus%E4%BD%BF%E7%94%A8java%E7%9A%84%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF" class="anchor" href="#jresplus%E4%BD%BF%E7%94%A8java%E7%9A%84%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF"><span class="octicon octicon-link"></span></a>jresplus使用Java的开发技术</h2>
+
+<p>使用到的语言和技术：java,spring,springmvc,velocity,HTML,CSS,Javascript,JQueryapache-common,slf4j,mybatis,Hibernate;<br>
+开发工具：Eclipse(或IntelliJ IDEA),Maven和Git(或SVN);<br></p>
+
+<h2>
+<a name="%E5%8F%82%E4%B8%8E%E6%88%91%E4%BB%AC" class="anchor" href="#%E5%8F%82%E4%B8%8E%E6%88%91%E4%BB%AC"><span class="octicon octicon-link"></span></a>参与我们</h2>
+
+<p>如果你的电脑里还可以放下一部短片、或者几首mp3，那么不妨<a href="https://github.com/hundsun/jresplus/fork">Fork一下jresplus</a>吧，也许它能帮助你换台更好的电脑...</p>
+
+<h2>
+<a name="%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3" class="anchor" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3"><span class="octicon octicon-link"></span></a>相关文档</h2>
+
+<p>See the wiki page for: <a href="https://github.com/hundsun/jresplus/wiki">jresplus wiki</a></p>
+
+<h3>
+<a name="wiki-%E6%96%87%E6%A1%A3%E5%88%97%E8%A1%A8" class="anchor" href="#wiki-%E6%96%87%E6%A1%A3%E5%88%97%E8%A1%A8"><span class="octicon octicon-link"></span></a>wiki 文档列表</h3>
+
+<ul>
+<li><a href="https://github.com/hundsun/jresplus/wiki/Home">jresplus-介绍</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/jresplus%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83">jresplus编码规范</a></li>
+<li>
+<a href="https://github.com/hundsun/jresplus/tree/master/quick-start/quick_start_mvc.zip">mvc-quick-start-project下载</a>；</li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/NoSession%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-会话同步NoSession的适用与使用</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/URLBroker%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-资源代理URLBroker的适用和使用</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/Bigpipe%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-异步管道输出Bigpipe的适用与使用</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/PageStatic%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-页面静态化PageStatic的适用和使用</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/%E6%B2%99%E7%AE%B1%E7%89%B9%E6%80%A7%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-沙箱特性页面编程的适用和使用</a></li>
+<li><a href="https://github.com/hundsun/jresplus/wiki/COC%E8%A7%86%E5%9B%BE%E5%BC%80%E5%8F%91%E7%9A%84%E9%80%82%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8">mvc-职责分离式视图开发的适用和使用</a></li>
+</ul><h2>
+<a name="%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88" class="anchor" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span class="octicon octicon-link"></span></a>问题反馈</h2>
+
+<p>QQ交流群：368209161<br>
+报告issue：<a href="https://github.com/hundsun/jresplus/issues">issue</a></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
