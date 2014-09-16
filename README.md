@@ -40,6 +40,7 @@ jresplus使用Java的开发技术
 ---
 See the wiki page for: [jresplus wiki](https://github.com/hundsun/jresplus/wiki)
 ###wiki 文档列表
+* [jresplus-介绍](https://github.com/hundsun/jresplus/wiki/Home)
 * [mvc-quick-start-project下载](https://github.com/hundsun/jresplus/tree/master/quick-start/quick_start_mvc.zip)；
 * [mvc-会话同步NoSession的适用与使用](https://github.com/hundsun/jresplus/wiki/NoSession的适用和使用)
 * [mvc-资源代理URLBroker的适用和使用](https://github.com/hundsun/jresplus/wiki/URLBroker的适用和使用)
