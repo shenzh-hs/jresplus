@@ -13,6 +13,7 @@ import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.directive.Directive;
 import org.apache.velocity.runtime.parser.node.Node;
 
+import com.hundsun.jresplus.web.contain.async.AsynchronContainTask;
 import com.hundsun.jresplus.web.contain.async.AsynchronousContain;
 import com.hundsun.jresplus.web.contain.pipeline.PipelineTask;
 
@@ -46,9 +47,18 @@ public class JsCodeDirective extends Directive {
 		if (AsynchronousContain.isAsyncConext()) {
 			StringWriter sw = new StringWriter();
 			bodyNode.render(context, sw);
-			PipelineTask task = (PipelineTask) context
-					.get(PipelineTask.ATTR_KEY);
-			task.addJsCode(sw.toString());
+			Object obj = context.get(PipelineTask.ATTR_KEY);
+			if (obj != null) {
+				if (obj instanceof PipelineTask) {
+					PipelineTask task = (PipelineTask) obj;
+					task.addJsCode(sw.toString());
+				}
+				if (obj instanceof AsynchronContainTask) {
+					AsynchronContainTask task = (AsynchronContainTask) obj;
+					task.addJsCode(sw.toString());
+				}
+			}
+
 		} else {
 			writer.write("<script type=\"text/javascript\">\r\n");
 			bodyNode.render(context, writer);
