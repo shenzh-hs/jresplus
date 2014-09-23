@@ -23,11 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.hundsun.jresplus.common.util.ArrayUtil;
 import com.hundsun.jresplus.web.contain.ResponseStringWriterWrapper;
 import com.hundsun.jresplus.web.contain.async.AsynchronousContain;
-/**
- * 管道输出器，使用到指令可触发Bigpipe渲染任务的执行
- * @author XIE (xjj@hundsun.com)
- *
- */
+
 public class PipelineExporter implements Renderable {
 	private static final Logger logger = LoggerFactory
 			.getLogger(PipelineExporter.class);
@@ -72,7 +68,17 @@ public class PipelineExporter implements Renderable {
 			return;
 		}
 		writer.write("<script type=\"text/javascript\">BigPipe.start();</script>");
-		response.flushBuffer();
+		try {
+			response.flushBuffer();
+		} catch (Exception e) {
+			String err = e.getMessage();
+			if (e.getCause() != null
+					&& (e.getCause() instanceof SocketException)) {
+				err = e.getCause().getMessage();
+			}
+			logger.info("Request[{}]'s response  flush abort, maybe:{}",
+					request.getRequestURI(), err);
+		}
 
 	}
 

@@ -15,11 +15,7 @@ import javax.servlet.http.Cookie;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/**
- * 页面镜像，用于描述响应的页面信息，该页面镜像做为存储到缓存中的值，同时从缓存中读取后用于还原响应过程
- * @author XIE
- *
- */
+
 public class PageImage implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = LoggerFactory.getLogger(PageImage.class);

@@ -11,13 +11,13 @@ import org.springframework.core.Ordered;
 
 public interface AttributeStore extends Ordered {
 
-	public void invalidate();
+	public void invalidate(String sessionId);
 
 	public Set<String> getAttributeNames();
 
 	public boolean isMatch(String key);
 
-	public Map<String, Object> loadValue();
+	public Map<String, Object> loadValue(String sessionId);
 
-	public void setValue(Map<String, StoreContext> values);
+	public void setValue(String sessionId, Map<String, StoreContext> values);
 }
