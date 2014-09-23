@@ -18,11 +18,7 @@ import org.apache.velocity.exception.MethodInvocationException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.Renderable;
-/**
- * Bigpipe渲染任务，一个bp输出会使用一个PipelineTask封装放置到队列中等待PipelineExport的触发
- * @author XIE (xjj@hundsun.com)
- *
- */
+
 public class PipelineTask implements Renderable {
 	public static final String ATTR_KEY = "asyncContainContext";
 	public static final int DEFAULT_QUEUE_SIZE = 8;
