@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 
 import com.hundsun.jresplus.common.util.ArrayUtil;
 import com.hundsun.jresplus.common.util.StringUtil;
-import com.hundsun.jresplus.web.nosession.SessionEncoderException;
 
 /**
  * 
@@ -137,17 +136,16 @@ class CookiesManagerImpl implements CookiesManager {
 
 	public void writeCookie(HttpServletRequest servletRequest,
 			HttpServletResponse servletResponse,
-			com.hundsun.jresplus.web.nosession.cookie.Cookie cookie)
-			throws SessionEncoderException {
+			com.hundsun.jresplus.web.nosession.cookie.Cookie cookie) {
 		int startNum = 0;
 		if (cookie.getValue() != null) {
 			if (cookie.getValue().length() > maxLength * maxCount) {
-				log.error("Cookie store full! All session attributes will be LOST! the cookies length="
+				log.error("Cookie store full! cookie[" + cookie.getName()
+						+ "] will be LOST! the cookies length="
 						+ cookie.getValue().length()
-						+ ", and the maxlength="
-						+ maxLength);
-				throw new SessionEncoderException(
-						"Cookie store full! All session attributes will be LOST!");
+						+ ", and the config maxlength[maxLength * maxCount]="
+						+ maxLength * maxCount);
+				return;
 			}
 
 			if (cookie.getValue().length() + cookie.getName().length() > maxLength) {

@@ -179,9 +179,9 @@ public class NoSessionContext implements InitializingBean {
 					cookieName, cookieValue, httpOnly, cookieTime, cookiePath,
 					cookieDomain));
 		} catch (SessionEncoderException e) {
-			log.error("load meta data from cookie error !", e);
+			log.error("write cookie store error !", e);
 		} catch (SerializationException e) {
-			log.error("load meta data from cookie error !", e);
+			log.error("write cookie store error !", e);
 		}
 	}
 
@@ -250,14 +250,19 @@ public class NoSessionContext implements InitializingBean {
 			if (StringUtil.isEmpty(cookieValue)) {
 				continue;
 			}
-			@SuppressWarnings("unchecked")
-			Map<String, Object> map = (Map<String, Object>) storeEncode
-					.decode(cookieValue);
-			if (map != null) {
+			try {
+				@SuppressWarnings("unchecked")
+				Map<String, Object> map = (Map<String, Object>) storeEncode
+						.decode(cookieValue);
+				if (map == null) {
+					continue;
+				}
 				if (map.containsKey(SessionToken.SESSION_ID)) {
 					sessionId = (String) map.get(SessionToken.SESSION_ID);
 				}
 				storeData.putAll(map);
+			} catch (Exception e) {
+				log.error("Get data from cookie error[{}]", e.getMessage());
 			}
 		}
 		if (StringUtil.isBlank(sessionId)) {
@@ -280,9 +285,14 @@ public class NoSessionContext implements InitializingBean {
 		if (StringUtil.isBlank(cookieValue)) {
 			return null;
 		}
-
-		return (Map<String, Object>) sessionToken.getEncode().decode(
-				cookieValue);
+		try {
+			return (Map<String, Object>) sessionToken.getEncode().decode(
+					cookieValue);
+		} catch (Exception e) {
+			log.error("SessionToken cookieValue decode error[{}].",
+					e.getMessage());
+		}
+		return null;
 	}
 
 	public String getSessionIdFormStore(HttpServletRequest request) {

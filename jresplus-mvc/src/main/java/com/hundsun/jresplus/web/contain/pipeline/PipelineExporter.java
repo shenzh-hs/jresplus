@@ -48,6 +48,9 @@ public class PipelineExporter implements Renderable {
 	public boolean render(InternalContextAdapter context, Writer writer)
 			throws IOException, MethodInvocationException, ParseErrorException,
 			ResourceNotFoundException {
+		if (taskQueue.isEmpty()) {
+			return true;
+		}
 		response.flushBuffer();
 		AsynchronousContain.setAsyncConext();
 		renderTaskQueue(writer, taskQueue);
@@ -68,18 +71,6 @@ public class PipelineExporter implements Renderable {
 			return;
 		}
 		writer.write("<script type=\"text/javascript\">BigPipe.start();</script>");
-		try {
-			response.flushBuffer();
-		} catch (Exception e) {
-			String err = e.getMessage();
-			if (e.getCause() != null
-					&& (e.getCause() instanceof SocketException)) {
-				err = e.getCause().getMessage();
-			}
-			logger.info("Request[{}]'s response  flush abort, maybe:{}",
-					request.getRequestURI(), err);
-		}
-
 	}
 
 	private void renderTask(Writer writer, PipelineTask task)
