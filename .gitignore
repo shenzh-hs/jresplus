@@ -3,3 +3,6 @@
 */target/maven-archiver
 */target/classes/
 
+*/.settings/*
+*/.project
+*/.classpath

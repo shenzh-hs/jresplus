@@ -54,3 +54,5 @@ See the wiki page for: [jresplus wiki](https://github.com/hundsun/jresplus/wiki)
 ---
 QQ交流群：368209161<br/>
 报告issue：[issue](https://github.com/hundsun/jresplus/issues)
+
+fix a bug
